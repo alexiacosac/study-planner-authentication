@@ -3,7 +3,8 @@ export const runtime = "nodejs"
 import { NextResponse } from "next/server"
 import { prisma } from "../../lib/prisma"
 import { getServerSession } from "next-auth"
-import { authOptions } from "@/app/api/auth/[...nextauth]/route"
+import { authOptions } from "@/app/lib/auth"
+
 
 /* GET TASKS */
 export async function GET() {
@@ -55,13 +56,16 @@ export async function PATCH(req: Request) {
 
   const { id, completed } = await req.json()
 
-  const task = await prisma.task.update({
+  const task = await prisma.task.updateMany({
     where: {
       id,
       userId: session.user.id,
     },
-    data: { completed },
+    data: {
+      completed,
+    },
   })
+
 
   return NextResponse.json(task)
 }
@@ -75,12 +79,13 @@ export async function DELETE(req: Request) {
 
   const { id } = await req.json()
 
-  await prisma.task.delete({
-    where: {
-      id,
-      userId: session.user.id,
-    },
-  })
+  await prisma.task.deleteMany({
+  where: {
+    id,
+    userId: session.user.id,
+  },
+})
+
 
   return NextResponse.json({ ok: true })
 }
