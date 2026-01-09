@@ -101,7 +101,18 @@ export default function PlannerPage() {
 
   return (
     <main className="mx-auto max-w-xl p-10">
-      <h1 className="mb-6 text-3xl font-bold">📚 Study Planner</h1>
+      <div className="mb-6 flex items-center justify-between">
+        <h1 className="text-3xl font-bold">📚 Study Planner</h1>
+
+        <button
+          onClick={() => signOut({ callbackUrl: "/" })}
+          className="rounded-md border border-zinc-300 px-3 py-1.5 text-sm text-zinc-600
+               hover:bg-pink-300 hover:text-zinc-900 transition"
+        >
+          Logout
+        </button>
+      </div>
+
 
       <div className="mb-6 flex gap-2">
         <input
@@ -124,12 +135,6 @@ export default function PlannerPage() {
           onClick={add}
         >
           Add
-        </button>
-        <button
-          onClick={() => signOut({ callbackUrl: "/" })}
-          className="rounded bg-black px-4 py-2 text-white hover:bg-pink-300 hover:text-black transition"
-        >
-          Logout
         </button>
       </div>
 
