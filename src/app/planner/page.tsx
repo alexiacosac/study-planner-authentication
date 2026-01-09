@@ -23,7 +23,7 @@ function daysUntil(date: string) {
 }
 
 export default function PlannerPage() {
-  const { data: session, status } = useSession()
+  const { status } = useSession()
 
   const [tasks, setTasks] = useState<Task[]>([])
   const [title, setTitle] = useState('')

@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation"
 import { useEffect } from "react"
 
 export default function HomePage() {
-  const { data: session, status } = useSession()
+  const { status } = useSession()
   const router = useRouter()
 
   // dacă e deja logată → direct în planner

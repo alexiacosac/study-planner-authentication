@@ -39,12 +39,12 @@ export default function RegisterPage() {
       <h1 className="mb-6 text-2xl font-bold">Register</h1>
 
       <input
-  type="email"
-  className="mb-3 w-full rounded border px-3 py-2"
-  placeholder="email"
-  value={email}
-  onChange={e => setEmail(e.target.value)}
-/>
+        type="email"
+        className="mb-3 w-full rounded border px-3 py-2"
+        placeholder="email"
+        value={email}
+        onChange={e => setEmail(e.target.value)}
+      />
 
 
       <input
