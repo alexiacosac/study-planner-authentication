@@ -1,7 +1,7 @@
 import Credentials from "next-auth/providers/credentials"
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import { prisma } from "./prisma"
-import bcrypt from "bcrypt"
+import bcryptjs from "bcryptjs"
 import type { NextAuthOptions } from "next-auth"
 
 export const authOptions: NextAuthOptions = {
@@ -28,7 +28,7 @@ export const authOptions: NextAuthOptions = {
           return null
         }
 
-        const valid = await bcrypt.compare(
+        const valid = await bcryptjs.compare(
           credentials.password,
           user.password
         )
