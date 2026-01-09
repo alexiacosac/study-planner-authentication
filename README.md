@@ -1,4 +1,5 @@
 Study Planner
+
 Live version: https://study-planner-authentication.vercel.app/
 
 This project is a full-stack web application built to help manage study tasks in a simple and structured way. It allows users to create an account, log in and manage their own study tasks independently.
